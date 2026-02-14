@@ -1,5 +1,19 @@
 # Evil-Micheal
-Discord music bot that plays local mp3 files.
+Discord music bot that plays local mp3 files. Built for a Linux host.
+
+## Dependencies
+
+Need to install the following dependencies:
+```
+sudo apt install nodejs
+sudo apt install npm
+```
+NPM dependencies
+```
+npm install discord.js
+npm install @discordjs/voice libsodium-wrappers
+npm install @discordjs/rest discord-api-types
+```
 
 ## Authentication
 
