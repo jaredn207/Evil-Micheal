@@ -13,6 +13,7 @@ NPM dependencies
 npm install discord.js
 npm install @discordjs/voice libsodium-wrappers
 npm install @discordjs/rest discord-api-types
+npm install ffmpeg-static
 ```
 
 ## Authentication
