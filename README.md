@@ -14,6 +14,7 @@ npm install discord.js
 npm install @discordjs/voice libsodium-wrappers
 npm install @discordjs/rest discord-api-types
 npm install ffmpeg-static
+npm install @snazzah/davey
 ```
 
 ## Authentication
