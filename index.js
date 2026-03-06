@@ -50,7 +50,7 @@ const client = new Discord.Client({ intents: [
 ]});
 
 // Ready event triggers when bot connects to Discord 
-client.on('ready', async () => {
+client.on('clientReady', async () => {
   await registerCommands();
   console.log('Bot started successfully!');
 });
