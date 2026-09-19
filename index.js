@@ -30,6 +30,7 @@ let currentSongId = -1;
 let songList = fs.readdirSync(songDirectory);
 let songListStr = generateSongList(songList);
 let randomEnabled = false;
+let loopFlag = false;
 
 const rest = new REST({
 	version: '9'
@@ -62,7 +63,11 @@ client.on('messageCreate', msg => {
 
 function nextSong()
 {
-	if (randomEnabled)
+	if (loopFlag)
+	{
+		currentSongId = currentSongId;
+	}
+	else if (randomEnabled)
 	{
 		currentSongId = Math.floor(Math.random()*songList.length);
 	}
@@ -175,6 +180,18 @@ client.on('interactionCreate', async (interaction) => {
 				await interaction.reply({content: "Error: not in any voice channel"});
 			}
 			break;
+		case 'loop':
+			if (loopFlag)
+			{
+				loopFlag = false;
+				await interaction.reply({content: "Loop Disabled"});
+			}
+			else
+			{
+				loopFlag = true;
+				await interaction.reply({content: "Loop Enabled"});
+			}
+			break;
 		case 'shuffle':
 			if (randomEnabled)
 			{
@@ -235,6 +252,10 @@ async function registerCommands() {
 			{
 				name: 'skip',
 				description: 'Skips the current song'
+			},
+			{
+				name: 'loop',
+				description: 'Loops the current song'
 			},
 		];
 
